@@ -1,0 +1,31 @@
+{
+  "family": "pentaho-elasticsearch",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "elasticsearch",
+      "image": "<aws_account_id>.dkr.ecr.<region>.amazonaws.com/pentaho-elasticsearch:latest",
+      "portMappings": [
+        {
+          "containerPort": 9200,
+          "protocol": "tcp"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/pentaho-elasticsearch",
+          "awslogs-region": "<region>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "essential": true
+    }
+  ]
+}

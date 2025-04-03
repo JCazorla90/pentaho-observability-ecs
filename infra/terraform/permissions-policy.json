@@ -1,0 +1,25 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecr:*",
+        "ecs:*",
+        "ec2:Describe*",
+        "ec2:CreateSecurityGroup",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateTags",
+        "ec2:CreateSubnet",
+        "ec2:CreateVpc",
+        "iam:PassRole",
+        "logs:*",
+        "secretsmanager:*",
+        "elasticloadbalancing:*",
+        "route53:*",
+        "acm:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
